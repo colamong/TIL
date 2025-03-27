@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>📚 카테고리</h2>
+      <ul>
+        {% for category in site.categories %}
+          <li><a href="/categories/{{ category[0] | slugify }}/">{{ category[0] }}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <main class="content">
+      {{ content }}
+    </main>
+  </div>
+</body>
+
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>
