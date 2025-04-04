@@ -298,6 +298,15 @@ footer {
 	color: #ccc;
 }
 
+.github-icon {
+	font-size: 24px;
+	color: white;
+	transition: color 0.3s ease;
+  }
+  
+  .github-link:hover .github-icon {
+	color: grey;
+  }
 
 @media (max-width: 576px) {
 	article {
@@ -336,4 +345,5 @@ footer {
 		visibility: hidden;
 		display: none;
 	}
+	  
 }
