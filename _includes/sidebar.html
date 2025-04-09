@@ -1,44 +1,84 @@
-
+<!-- 상단 정보 + 깃허브 -->
 <div class="sidebar-item sidebar-header">
 	<div class='sidebar-brand'>
-		<a href="{{ '/about/' | relative_url }}">{{ site.title }}</a>
+	  <a href="{{ '/about/' | relative_url }}">{{ site.title }}</a>
 	</div>
-	<p class="lead">{{ site.description}}</p>	
-	{%- if site.social.github -%}
-	<a href="https://github.com/colamong" target="_blank" class="github-link" title="GitHub">
-		<i class="fab fa-github github-icon"></i>
-	  </a>
-	  
-	{%- endif -%}
-</div>
-
-<div class="sidebar-item sidebar-nav">
+	<p class="lead">{{ site.description }}</p>	
+	{% if site.social.github %}
+	<a href="https://github.com/{{ site.social.github }}" target="_blank" class="github-link" title="GitHub">
+	  <i class="fab fa-github github-icon"></i>
+	</a>
+	{% endif %}
+  </div>
+  
+  <!-- 페이지 메뉴 -->
+  <div class="sidebar-item sidebar-nav">
 	<ul class="nav">
-      <li class="nav-title">Pages</li>
-	  <li>
-	  	<a class="nav-item" href="{{ "/" | relative_url }}">Articles</a>
-	  </li>
-	  <li>
-		<a class="nav-item" href="{{ "/" | relative_url }}">DailyAlgorithm</a>
-	</li>
-	 
+	  <li class="nav-title">Pages</li>
+	  <li><a class="nav-item" href="{{ "/" | relative_url }}">Articles</a></li>
+	  <li><a class="nav-item" href="{{ "/dailyalgorithm/" | relative_url }}">DailyAlgorithm</a></li>
+	  <li><a class="nav-item" href="{{ "/development/" | relative_url }}">Development</a></li>
+	  <li><a class="nav-item" href="{{ "/research/" | relative_url }}">Research</a></li>
 	</ul>
-</div>
-
-<div class="sidebar-item sidebar-nav">
-  	<ul class="nav">
-		<li class="nav-title">Categories</li>
-	    {% for category in site.categories %}
-	    <li>
-	    	<a class="nav-item" href="{{ site.baseurl }}/{{ site.category_dir }}#{{ category | first }}">
-				<span class="name">{{ category | first }}</span>
-				<span class="badge">{{ category | last | size }}</span>
-	    	</a>
- 		</li>
-	    {% endfor %}
+  </div>
+  
+  <!-- 카테고리 (토글 가능한 트리 메뉴) -->
+  <div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+	  <li class="nav-title">Categories</li>
+  
+	  {% assign grouped = site.categories | group_by_exp: "cat", "cat[0] | split: '/' | first" %}
+	  {% for group in grouped %}
+		{% assign parent = group.name %}
+		<li class="nav-parent" onclick="toggleCategory('{{ parent }}')">
+		  ▸ {{ parent }}
+		</li>
+		<ul id="sub-{{ parent }}" class="nav-sub" style="display: none;">
+		  {% for item in group.items %}
+			{% assign full = item[0] %}
+			{% assign sub = full | split: '/' | last %}
+			{% if sub != parent %}
+			<li>
+			  <a class="nav-item" href="{{ site.baseurl }}/{{ site.category_dir }}#{{ full | slugify }}">
+				{{ sub }}
+				<span class="badge">{{ item[1].size }}</span>
+			  </a>
+			</li>
+			{% endif %}
+		  {% endfor %}
+		</ul>
+	  {% endfor %}
 	</ul>
-</div>
-
-<div class="sidebar-item sidebar-footer">
+  </div>
+  
+  <!-- 푸터 -->
+  <div class="sidebar-item sidebar-footer">
 	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>
-</div>
+  </div>
+  
+  <!-- 토글 스크립트 -->
+  <script>
+	function toggleCategory(id) {
+	  const el = document.getElementById('sub-' + id);
+	  if (el.style.display === 'none') {
+		el.style.display = 'block';
+	  } else {
+		el.style.display = 'none';
+	  }
+	}
+  </script>
+  
+  <!-- 토글 CSS -->
+  <style>
+  .nav-parent {
+	cursor: pointer;
+	font-weight: bold;
+	margin-top: 5px;
+	user-select: none;
+  }
+  .nav-sub {
+	margin-left: 15px;
+	font-size: 0.95em;
+  }
+  </style>
+  
