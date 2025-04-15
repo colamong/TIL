@@ -1,18 +1,9 @@
 ---
 title: "[AI 스터디] 4일차 – RAG의 한계와 보완 전략 정리"
-date: 2025-04-15 09:00:00 +0900
+date: 2025-04-16 08:49:00 +0900
 categories: [AI, RAG, VectorSearch]
 tags:
-  [
-    RAG,
-    프롬프트엔지니어링,
-    파인튜닝,
-    하이브리드검색,
-    다단계검색,
-    지식그래프,
-    캐싱,
-    생성형AI,
-  ]
+  [RAG, Prompt, 파인튜닝, 하이브리드검색, 다단계검색, 지식그래프, 캐싱, Gen AI]
 ---
 
 # ✅ AI 서비스 설계 스터디 – 4일차 정리
@@ -36,7 +27,20 @@ tags:
 
 ---
 
-## 2️⃣ RAG 보완 전략 상세 정리
+## 2️⃣ 보완 전략 요약
+
+| 전략                     | 핵심 목적           | 키워드                     |
+| ------------------------ | ------------------- | -------------------------- |
+| 하이브리드 검색          | 검색 정확도 향상    | 키워드 + 벡터 병합         |
+| 질문 분해 생성           | 복잡 질문 분할 대응 | Sub-Query, Progressive QA  |
+| 다단계 검색 & Re-ranking | 검색 정밀도 향상    | Re-ranker 모델 사용        |
+| 지식 그래프 기반 검색    | 개체 관계 기반 추론 | NER, RE, KG                |
+| 프롬프트 vs 파인튜닝     | 생성 품질 향상      | 빠른 실험 vs 도메인 최적화 |
+| 캐싱 & 재사용            | 속도 및 비용 최적화 | Redis, 히스토리 기반       |
+
+---
+
+## 3️⃣ RAG 보완 전략 상세 정리
 
 ---
 
@@ -159,11 +163,13 @@ GPT의 출력 품질 향상을 위해 프롬프트를 최적화하거나, 모델
 - 의료/법률/전문 분야 → 파인튜닝
 - 대화형 FAQ 시스템 → 프롬프트
 
-** 📽️ 추천 영상 **
+**📽️ 추천 영상**
+
 해당 부분에 대해 잘 정리되어 있는 영상 시청을 추천함.
+
 [RAG vs Prompting vs Fine-tuning – AssemblyAI 영상](https://www.youtube.com/watch?v=zYGDpG-pTho)
 
-<iframe width="560" height="315" 
+<iframe width="840" height="473" 
   src="https://www.youtube.com/embed/zYGDpG-pTho" 
   title="RAG vs Prompting vs Fine-tuning (AssemblyAI)" 
   frameborder="0" 
