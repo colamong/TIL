@@ -1,5 +1,5 @@
 ---
-title: "[AI 스터디] 3일차 – LangChain 구성과 체인 구조 정리"
+title: "[AI TIL] 3일차 – LangChain 구성과 체인 구조 정리"
 date: 2025-04-15 09:00:00 +0900
 categories: [AI, RAG, LangChain]
 tags: [LangChain, Chain, Embedding, GPT, Retriever, 생성형AI]

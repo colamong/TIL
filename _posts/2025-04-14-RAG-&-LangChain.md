@@ -1,6 +1,6 @@
 ---
 title: "[AI TIL] LangChain과 RAG 구성 전체 흐름 정리"
-date: 2025-04-14
+date: 2025-04-14 09:00:00 +0900
 categories: [AI, RAG, LangChain]
 tags: [RAG, LangChain, Embedding, VectorSearch, HuggingFace, 생성형AI]
 ---

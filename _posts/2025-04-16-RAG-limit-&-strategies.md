@@ -1,9 +1,18 @@
 ---
-title: "[AI 스터디] 4일차 – RAG의 한계와 보완 전략 정리"
+title: "[AI TIL] 4일차 – RAG의 한계와 보완 전략 정리"
 date: 2025-04-16 08:49:00 +0900
 categories: [AI, RAG, VectorSearch]
 tags:
-  [RAG, Prompt, 파인튜닝, 하이브리드검색, 다단계검색, 지식그래프, 캐싱, Gen AI]
+  [
+    RAG,
+    Prompt-Engineering,
+    파인튜닝,
+    하이브리드검색,
+    다단계검색,
+    지식그래프,
+    캐싱,
+    Gen AI,
+  ]
 ---
 
 # ✅ AI 서비스 설계 스터디 – 4일차 정리
